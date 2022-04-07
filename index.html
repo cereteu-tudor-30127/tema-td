@@ -2,13 +2,14 @@
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <title>Hamming Encoder</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
+
   <body>
     <div id="hamming-encoder">
       <h1>
         Hamming code for
-        <select v-on:change="initDataBits()" v-model="numberOfDataBits()">
+        <select v-on:change="initDataBits()" v-model="numberOfDataBits">
           <option value="4">4</option>
           <option value="8">8</option>
         </select>
@@ -16,27 +17,27 @@
       </h1>
 
       <br />
-      <ul v-for="(bit, index) in dataBits">
+      <ul v-for="(bit,index) in dataBits">
         <li>
           <input
             maxlength="1"
-            :placeholder="'D' + index"
+            :placeholder="'D'+index"
             v-model="bit.data"
             v-bind:class="[validateBit(bit.data) ? 'valid-input' : 'invalid-input']"
           />
         </li>
       </ul>
       <br />
-      Data Bits: <code>{{dataBits}}</code>
+      Data bits : <code>{{dataBits}}</code>
       <br />
 
-      <button v-on:click="send()">Send</button>
-
-      <p>{{status}}</p>
+      <button v-on:click="send ()">Send</button>
+      <p>{{ status }}</p>
     </div>
 
-    <script type="text/javascript" src="libs/vue.js"></script>
-    <script type="text/javascript" src="libs/axios.js"></script>
-    <script type="text/javascript" src="libs/app.js"></script>
+    <!-- <script type="text/javascript" src="libs/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
